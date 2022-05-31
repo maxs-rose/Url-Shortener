@@ -25,6 +25,12 @@
       "@pages/*": [
         "./pages/*"
       ],
+      "@api/*": [
+        "./pages/api/*"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ]
     }
   },
   "include": ["next-env.d.ts", "./src/**/*.ts", "./src/**/*.tsx"],
