@@ -6,22 +6,22 @@ import Head from "next/head";
 import React from "react";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  return (
-      <>
-        <Head>
-          <title>Url Shortener</title>
-        </Head>
-        <Component {...pageProps} />
-      </>
-  )
+	return (
+		<>
+			<Head>
+				<title>Url Shortener</title>
+			</Head>
+			<Component {...pageProps} />
+		</>
+	)
 }
 
 export default withTRPC<AppRouter>({
-  config({ctx}) {
-    const url = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}/api/trpc` : `http://localhost:3000/api/trpc`;
+	config({ ctx }) {
+		const url = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}/api/trpc` : `http://localhost:3000/api/trpc`;
 
-    return {
-      url
-    };
-  }
+		return {
+			url
+		};
+	}
 })(MyApp);
