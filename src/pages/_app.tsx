@@ -10,6 +10,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 		<>
 			<Head>
 				<title>Url Shortener</title>
+				<link rel="icon" href="/favicon.png" />
 			</Head>
 			<Component {...pageProps} />
 		</>
