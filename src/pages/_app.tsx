@@ -1,4 +1,4 @@
-import { AppRouter } from "@api/trpc/[trpc]";
+import { AppRouter } from "@backend/router";
 import '@styles/globals.css'
 import { withTRPC } from "@trpc/next";
 import type { AppProps } from 'next/app'

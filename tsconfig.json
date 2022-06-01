@@ -29,8 +29,8 @@
       "@pages/*": [
         "./pages/*"
       ],
-      "@api/*": [
-        "./pages/api/*"
+      "@backend/*": [
+        "./backend/*"
       ],
       "@utils/*": [
         "./utils/*"
