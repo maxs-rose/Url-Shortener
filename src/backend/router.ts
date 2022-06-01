@@ -19,19 +19,19 @@ export const appRouter = trpc
 		let result: Link | undefined;
 
 		// generate a random slug
-		// let tries = 0;
-		// while(tries < 10) {
+		let tries = 0;
+		while(tries < 10) {
 			const id = nanoid(8);
 
-			// try {
+			try {
 				result = await prisma.link.create({ data: { id, target: input.target }});
-				// break;
-		// 	} catch {
-		// 		console.log(`failed to create new link id tries: ${tries}`);
-		// 	}
-		//
-		// 	tries++;
-		// }
+				break;
+			} catch {
+				console.log(`failed to create new link id tries: ${tries}`);
+			}
+
+			tries++;
+		}
 
 		return result;
 	}
