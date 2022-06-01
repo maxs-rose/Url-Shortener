@@ -16,7 +16,7 @@ const redirect = async (originUrl: string, targetUrl: string): Promise<NextRespo
 
 const middleware = async (req: NextRequest, _: never): Promise<NextResponse | undefined> => {
 	// if its a request for the homepage or the api carry on as normal
-	if (req.nextUrl.pathname.startsWith("/api/") || req.nextUrl.pathname === "/")
+	if (req.nextUrl.pathname.startsWith("/api/") || req.nextUrl.pathname.startsWith("/favicon") || req.nextUrl.pathname === "/")
 		return;
 
 	return redirect(req.nextUrl.origin, req.nextUrl.pathname.slice(1));
