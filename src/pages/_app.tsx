@@ -26,7 +26,7 @@ function getBaseUrl() {
 export default withTRPC<AppRouter>({
 	config({ ctx }) {
 		return {
-			url: getBaseUrl()
+			url: `${getBaseUrl()}/api/trpc`
 		};
 	},
 	ssr: false,
