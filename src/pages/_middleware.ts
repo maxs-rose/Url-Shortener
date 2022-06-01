@@ -19,6 +19,8 @@ const middleware = async (req: NextRequest, _: never): Promise<NextResponse | un
 	if (req.nextUrl.pathname.startsWith("/api/") || req.nextUrl.pathname.startsWith("/favicon") || req.nextUrl.pathname === "/")
 		return;
 
+	console.log("attempting to redirect");
+
 	return redirect(req.nextUrl.origin, req.nextUrl.pathname.slice(1));
 }
 
