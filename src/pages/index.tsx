@@ -28,13 +28,13 @@ const Home: NextPage = () => {
 
 	const isBadUrl = () => {
 		if(badUrl) {
-			return <div className="mt-3 text-red-700 font-bold font-semibold text-xl">❌ Bad URL ❌</div>
+			return <div className="mt-3 text-white back bg-[#252627] p-2 rounded">❌ Bad URL ❌</div>
 		}
 	}
 
 	const isGoodUrl = () => {
-		if(!badUrl) {
-			return <div className="mt-3 text-red-700 font-bold font-semibold text-xl" ref={urlRef} onClick={selectAll}>{result}</div>
+		if(!badUrl && result) {
+			return <div className="mt-3 text-white back bg-[#252627] p-2 rounded hover:bg-[#212227]" title="Click to copy" ref={urlRef} onClick={selectAll}>{result}</div>
 		}
 	}
 
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
 		if(!copiedToClipboard)
 			return;
 
-		return <span>Copied to clipboard!</span>
+		return <span className="absolute top-4 text-xl text-white back bg-[#252627] p-2 rounded animate-bounce">Copied to clipboard!</span>
 	}
 
 	const updateInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -57,11 +57,11 @@ const Home: NextPage = () => {
 	}
 
 	return (
-		<main className="h-screen w-screen bg-emerald-900 relative">
+		<main className="h-screen w-screen bg-[#af2bbf] relative">
 			<div className="h-full flex flex-col justify-center items-center">
-				<div className="flex flex-row gap-3">
-					<input className="rounded p-2 w-52 w-fit" placeholder="Enter Link" value={longLink} onChange={updateInput}/>
-					<button className="bg-red-700 text-white p-2 rounded hover:bg-red-600 active:bg-red-800 active:drop-shadow-2xl
+				<div className="flex flex-wrap flex-row justify-center gap-3">
+					<input className="rounded p-2 w-52 w-fit drop-shadow-xl" placeholder="Enter Link" value={longLink} onChange={updateInput}/>
+					<button className="bg-[#252627] text-white p-2 rounded hover:bg-[#212227] active:drop-shadow-2xl
 					" onClick={() => createLink()}>Create Short Link</button>
 				</div>
 				{isBadUrl()}
